@@ -35,7 +35,9 @@ def train_model(data):
     model.fit(X_train, y_train)
 
     accuracy = model.score(X_test, y_test)
-    print("\nModel Accuracy:", accuracy)
+    print(f"\nModel Accuracy: {accuracy * 100:.2f}%")    
+    
+
 
     predictions = model.predict(X_test)
     print("Predictions:", predictions)
@@ -52,17 +54,19 @@ def train_model(data):
     print("\nNew Input:")
     print(new_input)
     print("Prediction for new input:", prediction[0])
-
+    
 
 
 def main():
-    data = load_data(r"C:\Users\User\Desktop\sensor_Project\data\sample_data.csv")
+    # data = load_data(r"C:\Users\User\Desktop\sensor_Project\data\sample_data.csv")
+    data = load_data("../data/sample_data.csv")
     print("Loaded Data:")
     print(data)
 
     basic_stats(data)
     plot_data(data)
     train_model(data)
+    
 
 if __name__ == "__main__":
     main()
